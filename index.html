@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Bonaguro - Impact Roadmap</title>
+    
+    <!-- 1. Load Tailwind CSS (Styling) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Load React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- 3. Load Babel (Allows React code to run in browser) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-emerald-50">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // --- ICONS (Embedded directly so no imports are needed) ---
+        const IconBase = ({ children, size = 24, className = "" }) => (
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width={size} 
+                height={size} 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                className={className}
+            >
+                {children}
+            </svg>
+        );
+
+        const TrendingUp = (props) => <IconBase {...props}><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></IconBase>;
+        const Briefcase = (props) => <IconBase {...props}><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></IconBase>;
+        const Users = (props) => <IconBase {...props}><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></IconBase>;
+        const Target = (props) => <IconBase {...props}><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></IconBase>;
+        const Trophy = (props) => <IconBase {...props}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17"></path><path d="M14 14.66V17"></path><path d="M12 2v10a4 4 0 0 1-4 4H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4.66a2 2 0 0 1-2 2h-4a4 4 0 0 1-4-4Z"></path></IconBase>;
+        const CheckCircle2 = (props) => <IconBase {...props}><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></IconBase>;
+        const BrainCircuit = (props) => <IconBase {...props}><path d="M12 4.5a2.5 2.5 0 0 0-4.96-.46 2.5 2.5 0 0 0-1.98 3 2.5 2.5 0 0 0-1.32 4.24 3 3 0 0 0 .34 5.58 2.5 2.5 0 0 0 2.96 3.08 2.5 2.5 0 0 0 4.91.05L12 20V4.5Z"></path><path d="M16 8V5c0-1.1.9-2 2-2"></path><path d="M12 13h4"></path><path d="M12 18h6a2 2 0 0 1 2 2v1"></path><path d="M12 8h8"></path></IconBase>;
+        const Medal = (props) => <IconBase {...props}><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></IconBase>;
+        const BarChart3 = (props) => <IconBase {...props}><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></IconBase>;
+        const Zap = (props) => <IconBase {...props}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></IconBase>;
+
+        // --- MAIN APPLICATION COMPONENT ---
+        const ImpactInfographic = () => {
+            return (
+                <div className="min-h-screen bg-emerald-50 p-4 md:p-8 font-sans text-slate-800 flex justify-center">
+                {/* Main Container */}
+                <div className="max-w-4xl w-full bg-white shadow-2xl overflow-hidden rounded-xl border border-slate-200">
+                    
+                    {/* Header Section */}
+                    <div className="bg-emerald-900 text-white p-8 md:p-10 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
+                        <TrendingUp size={180} />
+                    </div>
+                    
+                    <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div>
+                        <h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-2">JAMES BONAGURO</h1>
+                        <p className="text-emerald-300 text-lg md:text-xl font-light uppercase tracking-wider">
+                            Retail Specialist & Performance Athlete
+                        </p>
+                        </div>
+                        <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20 text-sm">
+                        <div className="flex items-center gap-2 mb-1">
+                            <Briefcase size={16} className="text-emerald-400" />
+                            <span>Targeting: Footwear Associate (Orland Park)</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <Users size={16} className="text-emerald-400" />
+                            <span>"All-Hands-On-Deck" Mentality</span>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    {/* The Value Proposition */}
+                    <div className="p-8 md:p-10 bg-slate-50">
+                    <h2 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2 uppercase tracking-wide border-b border-slate-200 pb-2">
+                        <Target className="text-emerald-700" />
+                        The "Teammate" Fit
+                    </h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {/* Column 1 */}
+                        <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-600">
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-emerald-100 rounded-lg text-emerald-800">
+                            <Trophy size={24} />
+                            </div>
+                            <h3 className="font-bold text-lg">High-Impact Sales</h3>
+                        </div>
+                        <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Proven ability to drive the "extras" that matter to store metrics.
+                        </p>
+                        <ul className="space-y-2">
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Program Promoter:</strong> Experience communicating value for Credit Cards & Loyalty programs.</span>
+                            </li>
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Consultative Selling:</strong> 20% ATV increase at Alo by solving needs, not just fetching sizes.</span>
+                            </li>
+                        </ul>
+                        </div>
+
+                        {/* Column 2 */}
+                        <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-slate-600">
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-slate-100 rounded-lg text-slate-800">
+                            <BrainCircuit size={24} />
+                            </div>
+                            <h3 className="font-bold text-lg">Operational Discipline</h3>
+                        </div>
+                        <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                            I understand that a clean, safe, and organized floor drives revenue.
+                        </p>
+                        <ul className="space-y-2">
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Standard Operating Procedures:</strong> Deep experience with safety, loss prevention, and inventory.</span>
+                            </li>
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Merchandising:</strong> Skilled at executing floor sets and maintaining high presentation standards.</span>
+                            </li>
+                        </ul>
+                        </div>
+
+                        {/* Column 3 */}
+                        <div className="bg-white p-6 rounded-xl shadow-sm border-t-4 border-orange-500">
+                        <div className="flex items-center gap-3 mb-3">
+                            <div className="p-2 bg-orange-100 rounded-lg text-orange-700">
+                            <Medal size={24} />
+                            </div>
+                            <h3 className="font-bold text-lg">Footwear Expertise</h3>
+                        </div>
+                        <p className="text-slate-600 text-sm mb-4 leading-relaxed">
+                            Competitive athlete who understands biomechanics and fit.
+                        </p>
+                        <ul className="space-y-2">
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Technical Knowledge:</strong> Years of competitive Hockey & Jiu-Jitsu training translate to expert gear advice.</span>
+                            </li>
+                            <li className="flex items-start gap-2 text-sm text-slate-700">
+                            <CheckCircle2 size={16} className="text-emerald-600 mt-0.5 shrink-0" />
+                            <span><strong>Athlete-to-Athlete:</strong> I build trust quickly because I live the lifestyle.</span>
+                            </li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+
+                    {/* 30-60-90 Plan Section */}
+                    <div className="p-8 md:p-10 bg-white">
+                    <h2 className="text-xl font-bold text-slate-900 mb-8 flex items-center gap-2 uppercase tracking-wide border-b border-slate-200 pb-2">
+                        <BarChart3 className="text-emerald-600" />
+                        30-60-90 Day Impact Roadmap
+                    </h2>
+
+                    <div className="space-y-8 relative">
+                        {/* Connecting Line (Desktop) */}
+                        <div className="hidden md:block absolute left-[19px] top-2 bottom-6 w-0.5 bg-slate-200"></div>
+
+                        {/* Day 30 */}
+                        <div className="relative flex flex-col md:flex-row gap-6">
+                        <div className="flex-shrink-0 z-10">
+                            <div className="w-10 h-10 rounded-full bg-emerald-700 flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                            30
+                            </div>
+                        </div>
+                        <div className="flex-grow">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Learn & Support</h3>
+                            <div className="bg-slate-50 p-4 rounded-lg border border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-emerald-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Product Tech:</strong> Master the specific footwear technologies to provide "Hassle-Free" expert advice.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-emerald-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Programs:</strong> Learn the pitch for Warranty Sales and Credit Card enrollment to contribute immediately.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-emerald-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Operations:</strong> Internalize safety protocols and back-room inventory organization standards.</span>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        {/* Day 60 */}
+                        <div className="relative flex flex-col md:flex-row gap-6">
+                        <div className="flex-shrink-0 z-10">
+                            <div className="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                            60
+                            </div>
+                        </div>
+                        <div className="flex-grow">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Execute & Elevate</h3>
+                            <div className="bg-slate-50 p-4 rounded-lg border border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-slate-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Floor Standards:</strong> Take ownership of aisle presentation, signage accuracy, and replenishment.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-slate-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>KPI Focus:</strong> Consistently meet targets for warranty attachment rates and loyalty sign-ups.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-slate-600 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Proactive Service:</strong> Demonstrate "Action-Oriented" trait by seeking out customers before they ask for help.</span>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        {/* Day 90 */}
+                        <div className="relative flex flex-col md:flex-row gap-6">
+                        <div className="flex-shrink-0 z-10">
+                            <div className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                            90
+                            </div>
+                        </div>
+                        <div className="flex-grow">
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">Lead & Collaborate</h3>
+                            <div className="bg-slate-50 p-4 rounded-lg border border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-orange-500 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>All-Hands-On-Deck:</strong> Flex across departments to support store-wide surges and merchandising resets.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-orange-500 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Inclusive Culture:</strong> actively contribute to a welcoming environment for all athletes and teammates.</span>
+                            </div>
+                            <div className="flex gap-2">
+                                <Zap size={18} className="text-orange-500 shrink-0" />
+                                <span className="text-sm text-slate-700"><strong>Reliability:</strong> Establish a reputation for "Decision-Quality" and "Instilling Trust" with management.</span>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    </div>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="bg-slate-100 p-6 text-center border-t border-slate-200">
+                    <p className="font-semibold text-slate-900">James Bonaguro</p>
+                    <div className="flex flex-wrap justify-center gap-4 text-sm text-slate-600 mt-2">
+                        <span>Orland Park, IL</span>
+                        <span>•</span>
+                        <span>708‑420‑5462</span>
+                        <span>•</span>
+                        <span>james.bonaguro@gmail.com</span>
+                    </div>
+                    </div>
+
+                </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<ImpactInfographic />);
+    </script>
+</body>
+</html>
