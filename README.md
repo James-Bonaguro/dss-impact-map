@@ -1,4 +1,4 @@
-[Infographic Here](https://james-bonaguro.github.io/LT_vibecode/)
+[Infographic Here](https://james-bonaguro.github.io/DFY-apps/)
 
 Democratizing
 Bespoke Intelligence.
